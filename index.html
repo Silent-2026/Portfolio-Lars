@@ -6,7 +6,6 @@
 <title>Lars VFX | Portfolio</title>
 
 <style>
-/* ===== BASE ===== */
 * {
   box-sizing: border-box;
 }
@@ -15,17 +14,24 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ===== BACKGROUND ===== */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #0b0b14, #000);
   color: white;
-  background: radial-gradient(circle at top, #1a1a2e, #000);
   overflow-x: hidden;
   cursor: none;
 }
 
-/* ===== APPLE-STYLE CURSOR ===== */
+a,
+button,
+.card,
+.thumb-card,
+iframe,
+img {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 2 L5 26 L12 19 L17 30 L20 29 L15 18 L24 18 Z' fill='white' stroke='rgba(255,255,255,0.35)' stroke-width='1' stroke-linejoin='round'/%3E%3C/svg%3E") 4 4, pointer;
+}
+  /* ===== APPLE-STYLE CURSOR ===== */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -43,27 +49,6 @@ iframe {
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 2 L5 26 L12 19 L17 30 L20 29 L15 18 L24 18 Z' fill='white' stroke='rgba(255,255,255,0.35)' stroke-width='1' stroke-linejoin='round'/%3E%3C/svg%3E") 4 4, pointer;
 }
 
-/* ===== GLASS BACKGROUND BLOBS ===== */
-.blob {
-  position: fixed;
-  width: 500px;
-  height: 500px;
-  filter: blur(140px);
-  opacity: 0.35;
-  border-radius: 50%;
-  z-index: -1;
-  animation: float 12s infinite ease-in-out;
-  pointer-events: none;
-}
-
-.blob.one { background: #7c3aed; top: -150px; left: -150px; }
-.blob.two { background: #06b6d4; bottom: -150px; right: -150px; }
-
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(60px); }
-}
-/* ===== GLASS EFFECT ===== */
 .glass {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255,255,255,0.15);
@@ -73,7 +58,6 @@ iframe {
   box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
 
-/* ===== HEADER ===== */
 header {
   text-align: center;
   padding: 80px 20px;
@@ -91,7 +75,6 @@ h1 {
   font-size: 1.05rem;
 }
 
-/* ===== SECTION ===== */
 section {
   max-width: 1100px;
   margin: auto;
@@ -105,35 +88,36 @@ h2 {
   font-size: clamp(28px, 4vw, 36px);
 }
 
-/* ===== GRID ===== */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 20px;
 }
 
-/* ===== VIDEO CARD ===== */
-.card {
+.card,
+.thumb-card {
   padding: 15px;
   transition: transform 0.3s ease;
 }
 
-.card:hover {
+.card:hover,
+.thumb-card:hover {
   transform: scale(1.03);
 }
 
-iframe {
+iframe,
+.thumb {
   width: 100%;
   height: 220px;
   border-radius: 15px;
   border: none;
   display: block;
+  object-fit: cover;
 }
 
-/* ===== BUTTON ===== */
 .btn {
   display: inline-block;
-  margin-top: 20px;
+  margin: 10px 8px 0;
   padding: 12px 22px;
   border-radius: 999px;
   background: rgba(255,255,255,0.1);
@@ -149,7 +133,6 @@ iframe {
   background: rgba(255,255,255,0.2);
 }
 
-/* ===== ABOUT ===== */
 .about {
   text-align: center;
   margin-top: 20px;
@@ -163,14 +146,43 @@ iframe {
   line-height: 1.7;
 }
 
-/* ===== FOOTER ===== */
+.cursor {
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: rgba(255,255,255,0.9);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.35),
+    0 0 18px rgba(255,255,255,0.25);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition:
+    width 0.2s ease,
+    height 0.2s ease,
+    background 0.2s ease,
+    transform 0.08s linear,
+    box-shadow 0.2s ease;
+}
+
+.cursor.hover {
+  width: 42px;
+  height: 42px;
+  background: rgba(255,255,255,0.12);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.2),
+    0 0 28px rgba(255,255,255,0.15);
+}
+
 footer {
   text-align: center;
   padding: 40px;
   color: #666;
 }
 
-/* ===== MOBILE ===== */
 @media (max-width: 768px) {
   body {
     cursor: auto;
@@ -184,7 +196,8 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  iframe {
+  iframe,
+  .thumb {
     height: 210px;
   }
 }
@@ -201,84 +214,42 @@ footer {
   <h1>LARS VFX</h1>
   <div class="subtitle">VFX • Indents • Montages • Editing Software • Thumbnails</div>
   <a class="btn" href="#work">Portfolio</a>
+  <a class="btn" href="#thumbnails">Thumbnails</a>
 </header>
 
 <section class="glass about">
   <h2>About Lars VFX</h2>
-  <p>
-    Nummer 1 VFX Shop van Nederland! 
-  </p>
+  <p>Nummer 1 VFX Shop van Nederland!</p>
 </section>
 
 <section id="work">
   <h2>Projects</h2>
-
   <div class="grid">
-
-    <div class="glass card">
-      <iframe src="https://www.youtube.com/embed/N7vpbeXD9vY" title="Project 1" allowfullscreen></iframe>
-    </div>
-
-    <div class="glass card">
-      <iframe src="https://www.youtube.com/embed/pd6nv-I5F_4" title="Project 2" allowfullscreen></iframe>
-    </div>
-
-    <div class="glass card">
-      <iframe src="https://www.youtube.com/embed/a47zbq367qY" title="Project 3" allowfullscreen></iframe>
-    </div>
-
-    <div class="glass card">
-      <iframe src="https://www.youtube.com/embed/hBNRPI55WwM" title="Project 4" allowfullscreen></iframe>
-    </div>
-
-    <div class="glass card">
-      <iframe src="https://www.youtube.com/embed/_IdQ169qETU" title="Project 5" allowfullscreen></iframe>
-    </div>
-
-    <div class="glass card">
-      <iframe src="https://www.youtube.com/embed/_q_p6vjaB-0" title="Project 6" allowfullscreen></iframe>
-    </div>
-
-    <div class="glass card">
-      <iframe src="https://www.youtube.com/embed/zTsws8_Yvhs" title="Project 7" allowfullscreen></iframe>
-    </div>
-
-    <div class="glass card">
-      <iframe src="https://www.youtube.com/embed/GpGtei5CbOw" title="Project 8" allowfullscreen></iframe>
-    </div>
-
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/N7vpbeXD9vY" title="Project 1" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/pd6nv-I5F_4" title="Project 2" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/a47zbq367qY" title="Project 3" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/hBNRPI55WwM" title="Project 4" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/_IdQ169qETU" title="Project 5" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/_q_p6vjaB-0" title="Project 6" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/zTsws8_Yvhs" title="Project 7" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/GpGtei5CbOw" title="Project 8" allowfullscreen></iframe></div>
   </div>
 </section>
 
-  <section id="thumbnails">
+<section id="thumbnails">
   <h2>Thumbnails</h2>
-
   <div class="grid">
-
     <div class="glass thumb-card">
-      <img
-        class="thumb"
-        src="https://cdn.discordapp.com/attachments/1496483719676956672/1496487430281236601/image.png?ex=69f1f906&is=69f0a786&hm=929b75f6ad9b3d94931afbf5d5b3c700824e150840775ab7d05de09c27018260&"
-        alt="Thumbnail 1"
-      />
+      <img class="thumb" src="https://cdn.discordapp.com/attachments/1496483719676956672/1496487430281236601/image.png?ex=69f1f906&is=69f0a786&hm=929b75f6ad9b3d94931afbf5d5b3c700824e150840775ab7d05de09c27018260&" alt="Thumbnail 1">
     </div>
 
     <div class="glass thumb-card">
-      <img
-        class="thumb"
-        src="https://cdn.discordapp.com/attachments/1496483719676956672/1496487236932210788/3_Vertex_Lars.png?ex=69f1f8d8&is=69f0a758&hm=fafb13efa5ee61898e782f97912e85d01e65f88a506f2324e985e27dfdba608b&"
-        alt="Thumbnail 2"
-      />
+      <img class="thumb" src="https://cdn.discordapp.com/attachments/1496483719676956672/1496487236932210788/3_Vertex_Lars.png?ex=69f1f8d8&is=69f0a758&hm=fafb13efa5ee61898e782f97912e85d01e65f88a506f2324e985e27dfdba608b&" alt="Thumbnail 2">
     </div>
 
     <div class="glass thumb-card">
-      <img
-        class="thumb"
-        src="https://cdn.discordapp.com/attachments/1496483719676956672/1496486265196118017/IMG_2926.png?ex=69f1f7f0&is=69f0a670&hm=63eb88895ccdf6595e0a07fe36af9b4589165d1cd242a34eafdcb9ecf688ffb1&"
-        alt="Thumbnail 3"
-      />
+      <img class="thumb" src="https://cdn.discordapp.com/attachments/1496483719676956672/1496486265196118017/IMG_2926.png?ex=69f1f7f0&is=69f0a670&hm=63eb88895ccdf6595e0a07fe36af9b4589165d1cd242a34eafdcb9ecf688ffb1&" alt="Thumbnail 3">
     </div>
-
   </div>
 </section>
 
@@ -294,7 +265,7 @@ window.addEventListener('mousemove', (e) => {
   cursor.style.top = e.clientY + 'px';
 });
 
-document.querySelectorAll('a, iframe, .card').forEach(el => {
+document.querySelectorAll('a, iframe, .card, .thumb-card, img').forEach(el => {
   el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
   el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
 });
