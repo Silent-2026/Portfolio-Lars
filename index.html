@@ -3,9 +3,18 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Lars VFX | Liquid Glass Portfolio</title>
+<title>Lars VFX | Portfolio</title>
 
 <style>
+/* ===== BASE ===== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 /* ===== BACKGROUND ===== */
 body {
   margin: 0;
@@ -13,6 +22,7 @@ body {
   color: white;
   background: radial-gradient(circle at top, #1a1a2e, #000);
   overflow-x: hidden;
+  cursor: none;
 }
 
 /* animated glow blobs */
@@ -25,6 +35,7 @@ body {
   border-radius: 50%;
   z-index: -1;
   animation: float 10s infinite ease-in-out;
+  pointer-events: none;
 }
 
 .blob.one { background: #7c3aed; top: -100px; left: -100px; }
@@ -52,7 +63,7 @@ header {
 }
 
 h1 {
-  font-size: 60px;
+  font-size: clamp(42px, 8vw, 60px);
   margin: 0;
   letter-spacing: 3px;
 }
@@ -60,6 +71,7 @@ h1 {
 .subtitle {
   color: #bbb;
   margin-top: 10px;
+  font-size: 1.05rem;
 }
 
 /* ===== SECTION ===== */
@@ -67,6 +79,13 @@ section {
   max-width: 1100px;
   margin: auto;
   padding: 40px 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: clamp(28px, 4vw, 36px);
 }
 
 /* ===== GRID ===== */
@@ -91,6 +110,7 @@ iframe {
   height: 220px;
   border-radius: 15px;
   border: none;
+  display: block;
 }
 
 /* ===== BUTTON ===== */
@@ -102,6 +122,7 @@ iframe {
   background: rgba(255,255,255,0.1);
   border: 1px solid rgba(255,255,255,0.2);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: white;
   text-decoration: none;
   transition: 0.3s;
@@ -116,13 +137,71 @@ iframe {
   text-align: center;
   margin-top: 20px;
   color: #ccc;
+  padding: 32px 24px;
 }
 
-/* footer */
+.about p {
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ===== APPLE CURSOR ===== */
+.cursor {
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: rgba(255,255,255,0.9);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.35),
+    0 0 18px rgba(255,255,255,0.25);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition:
+    width 0.2s ease,
+    height 0.2s ease,
+    background 0.2s ease,
+    transform 0.08s linear,
+    box-shadow 0.2s ease;
+}
+
+.cursor.hover {
+  width: 42px;
+  height: 42px;
+  background: rgba(255,255,255,0.12);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.2),
+    0 0 28px rgba(255,255,255,0.15);
+}
+
+/* ===== FOOTER ===== */
 footer {
   text-align: center;
   padding: 40px;
   color: #666;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
+
+  .cursor {
+    display: none;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  iframe {
+    height: 210px;
+  }
 }
 </style>
 </head>
@@ -131,64 +210,78 @@ footer {
 
 <div class="blob one"></div>
 <div class="blob two"></div>
+<div class="cursor"></div>
 
 <header>
   <h1>LARS VFX</h1>
-  <div class="subtitle">Cinematic VFX • CGI • Motion Design • Compositing</div>
-  <a class="btn" href="#work">View Showreel</a>
+  <div class="subtitle">VFX • Indents • Montages • Editing Software</div>
+  <a class="btn" href="#work">Portfolio</a>
 </header>
 
 <section class="glass about">
   <h2>About Lars VFX</h2>
   <p>
-    High-end visual effects studio focused on cinematic storytelling,
-    digital environments, motion graphics, and VFX compositing.
+    Nummer 1 VFX Shop van Nederland! 
   </p>
 </section>
 
 <section id="work">
-  <h2 style="text-align:center;">Showreel & Projects</h2>
+  <h2>Projects</h2>
 
   <div class="grid">
 
     <div class="glass card">
-      <iframe src="https://www.youtube.com/embed/N7vpbeXD9vY" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/N7vpbeXD9vY" title="Project 1" allowfullscreen></iframe>
     </div>
 
     <div class="glass card">
-      <iframe src="https://www.youtube.com/embed/pd6nv-I5F_4" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/pd6nv-I5F_4" title="Project 2" allowfullscreen></iframe>
     </div>
 
     <div class="glass card">
-      <iframe src="https://www.youtube.com/embed/a47zbq367qY" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/a47zbq367qY" title="Project 3" allowfullscreen></iframe>
     </div>
 
     <div class="glass card">
-      <iframe src="https://www.youtube.com/embed/hBNRPI55WwM" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/hBNRPI55WwM" title="Project 4" allowfullscreen></iframe>
     </div>
 
     <div class="glass card">
-      <iframe src="https://www.youtube.com/embed/_IdQ169qETU" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/_IdQ169qETU" title="Project 5" allowfullscreen></iframe>
     </div>
 
     <div class="glass card">
-      <iframe src="https://www.youtube.com/embed/_q_p6vjaB-0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/_q_p6vjaB-0" title="Project 6" allowfullscreen></iframe>
     </div>
 
     <div class="glass card">
-      <iframe src="https://www.youtube.com/embed/zTsws8_Yvhs" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/zTsws8_Yvhs" title="Project 7" allowfullscreen></iframe>
     </div>
 
     <div class="glass card">
-      <iframe src="https://www.youtube.com/embed/GpGtei5CbOw" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/GpGtei5CbOw" title="Project 8" allowfullscreen></iframe>
     </div>
 
   </div>
 </section>
 
 <footer>
-  © 2026 Lars VFX 
+  © 2026 Lars VFX
 </footer>
+
+<script>
+const cursor = document.querySelector('.cursor');
+
+window.addEventListener('mousemove', (e) => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+
+document.querySelectorAll('a, iframe, .card').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+});
+</script>
 
 </body>
 </html>
