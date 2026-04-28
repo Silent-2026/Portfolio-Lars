@@ -20,17 +20,16 @@ body {
   background: radial-gradient(circle at top, #0b0b14, #000);
   color: white;
   overflow-x: hidden;
-  cursor: none;
 }
 
-/* custom cursor */
+/* default cursor */
 a,
 button,
 .card,
 .thumb-card,
 iframe,
 img {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 2 L5 26 L12 19 L17 30 L20 29 L15 18 L24 18 Z' fill='white' stroke='rgba(255,255,255,0.35)' stroke-width='1' stroke-linejoin='round'/%3E%3C/svg%3E") 4 4, pointer;
+  cursor: pointer;
 }
 
 .glass {
@@ -127,26 +126,6 @@ iframe,
   line-height: 1.7;
 }
 
-/* cursor */
-.cursor {
-  position: fixed;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  pointer-events: none;
-  background: rgba(255,255,255,0.9);
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.35), 0 0 18px rgba(255,255,255,0.25);
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
-}
-
-.cursor.hover {
-  width: 42px;
-  height: 42px;
-  background: rgba(255,255,255,0.12);
-}
-
 footer {
   text-align: center;
   padding: 40px;
@@ -154,17 +133,19 @@ footer {
 }
 
 @media (max-width: 768px) {
-  body { cursor: auto; }
-  .cursor { display: none; }
-  .grid { grid-template-columns: 1fr; }
-  iframe, .thumb { height: 210px; }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  iframe,
+  .thumb {
+    height: 210px;
+  }
 }
 </style>
 </head>
 
 <body>
-
-<div class="cursor"></div>
 
 <header>
   <h1>LARS VFX</h1>
@@ -210,20 +191,6 @@ footer {
 <footer>
   © 2026 Lars VFX
 </footer>
-
-<script>
-const cursor = document.querySelector('.cursor');
-
-window.addEventListener('mousemove', (e) => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-});
-
-document.querySelectorAll('a, iframe, .card, .thumb-card, img').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-});
-</script>
 
 </body>
 </html>
