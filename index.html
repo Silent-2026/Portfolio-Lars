@@ -23,7 +23,6 @@ body {
   cursor: none;
 }
 
-/* custom cursor */
 a,
 button,
 .card,
@@ -31,6 +30,36 @@ button,
 iframe,
 img {
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 2 L5 26 L12 19 L17 30 L20 29 L15 18 L24 18 Z' fill='white' stroke='rgba(255,255,255,0.35)' stroke-width='1' stroke-linejoin='round'/%3E%3C/svg%3E") 4 4, pointer;
+}
+
+/* ===== APPLE-STYLE CURSOR ===== */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #0b0b14, #000);
+  color: white;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Cpath d='M5 2 L5 26 L12 19 L17 30 L20 29 L15 18 L24 18 Z' fill='white'/%3E%3C/svg%3E") 4 4, auto;
+  overflow-x: hidden;
+}
+
+/* ===== GLASS BACKGROUND BLOBS ===== */
+.blob {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  filter: blur(140px);
+  opacity: 0.35;
+  border-radius: 50%;
+  z-index: -1;
+  animation: float 12s infinite ease-in-out;
+}
+
+.blob.one { background: #7c3aed; top: -150px; left: -150px; }
+.blob.two { background: #06b6d4; bottom: -150px; right: -150px; }
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(60px); }
 }
 
 .glass {
@@ -67,6 +96,7 @@ section {
 
 h2 {
   text-align: center;
+  margin-top: 0;
   margin-bottom: 24px;
   font-size: clamp(28px, 4vw, 36px);
 }
@@ -94,6 +124,7 @@ iframe,
   height: 220px;
   border-radius: 15px;
   border: none;
+  display: block;
   object-fit: cover;
 }
 
@@ -117,6 +148,7 @@ iframe,
 
 .about {
   text-align: center;
+  margin-top: 20px;
   color: #ccc;
   padding: 32px 24px;
 }
@@ -127,24 +159,6 @@ iframe,
   line-height: 1.7;
 }
 
-/* cursor */
-.cursor {
-  position: fixed;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  pointer-events: none;
-  background: rgba(255,255,255,0.9);
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.35), 0 0 18px rgba(255,255,255,0.25);
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
-}
-
-.cursor.hover {
-  width: 42px;
-  height: 42px;
-  background: rgba(255,255,255,0.12);
 }
 
 footer {
@@ -154,16 +168,30 @@ footer {
 }
 
 @media (max-width: 768px) {
-  body { cursor: auto; }
-  .cursor { display: none; }
-  .grid { grid-template-columns: 1fr; }
-  iframe, .thumb { height: 210px; }
+  body {
+    cursor: auto;
+  }
+
+  .cursor {
+    display: none;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  iframe,
+  .thumb {
+    height: 210px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<div class="blob one"></div>
+<div class="blob two"></div>
 <div class="cursor"></div>
 
 <header>
@@ -181,14 +209,14 @@ footer {
 <section id="work">
   <h2>Projects</h2>
   <div class="grid">
-    <div class="glass card"><iframe src="https://www.youtube.com/embed/N7vpbeXD9vY" allowfullscreen></iframe></div>
-    <div class="glass card"><iframe src="https://www.youtube.com/embed/pd6nv-I5F_4" allowfullscreen></iframe></div>
-    <div class="glass card"><iframe src="https://www.youtube.com/embed/a47zbq367qY" allowfullscreen></iframe></div>
-    <div class="glass card"><iframe src="https://www.youtube.com/embed/hBNRPI55WwM" allowfullscreen></iframe></div>
-    <div class="glass card"><iframe src="https://www.youtube.com/embed/_IdQ169qETU" allowfullscreen></iframe></div>
-    <div class="glass card"><iframe src="https://www.youtube.com/embed/_q_p6vjaB-0" allowfullscreen></iframe></div>
-    <div class="glass card"><iframe src="https://www.youtube.com/embed/zTsws8_Yvhs" allowfullscreen></iframe></div>
-    <div class="glass card"><iframe src="https://www.youtube.com/embed/GpGtei5CbOw" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/N7vpbeXD9vY" title="Project 1" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/pd6nv-I5F_4" title="Project 2" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/a47zbq367qY" title="Project 3" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/hBNRPI55WwM" title="Project 4" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/_IdQ169qETU" title="Project 5" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/_q_p6vjaB-0" title="Project 6" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/zTsws8_Yvhs" title="Project 7" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/GpGtei5CbOw" title="Project 8" allowfullscreen></iframe></div>
   </div>
 </section>
 
@@ -196,13 +224,15 @@ footer {
   <h2>Thumbnails</h2>
   <div class="grid">
     <div class="glass thumb-card">
-      <img class="thumb" src="https://cdn.discordapp.com/attachments/1496483719676956672/1496487430281236601/image.png" />
+      <img class="thumb" src="https://cdn.discordapp.com/attachments/1496483719676956672/1496487430281236601/image.png?ex=69f1f906&is=69f0a786&hm=929b75f6ad9b3d94931afbf5d5b3c700824e150840775ab7d05de09c27018260&" alt="Thumbnail 1">
     </div>
+
     <div class="glass thumb-card">
-      <img class="thumb" src="https://cdn.discordapp.com/attachments/1496483719676956672/1496487236932210788/3_Vertex_Lars.png" />
+      <img class="thumb" src="https://cdn.discordapp.com/attachments/1496483719676956672/1496487236932210788/3_Vertex_Lars.png?ex=69f1f8d8&is=69f0a758&hm=fafb13efa5ee61898e782f97912e85d01e65f88a506f2324e985e27dfdba608b&" alt="Thumbnail 2">
     </div>
+
     <div class="glass thumb-card">
-      <img class="thumb" src="https://cdn.discordapp.com/attachments/1496483719676956672/1496486265196118017/IMG_2926.png" />
+      <img class="thumb" src="https://cdn.discordapp.com/attachments/1496483719676956672/1496486265196118017/IMG_2926.png?ex=69f1f7f0&is=69f0a670&hm=63eb88895ccdf6595e0a07fe36af9b4589165d1cd242a34eafdcb9ecf688ffb1&" alt="Thumbnail 3">
     </div>
   </div>
 </section>
