@@ -135,7 +135,6 @@ iframe,
   background: rgba(255,255,255,0.1);
   border: 1px solid rgba(255,255,255,0.2);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   color: white;
   text-decoration: none;
   transition: 0.3s;
@@ -179,13 +178,8 @@ footer {
 }
 
 @media (max-width: 768px) {
-  body {
-    cursor: auto;
-  }
-
-  .cursor {
-    display: none;
-  }
+  body { cursor: auto; }
+  .cursor { display: none; }
 
   .grid {
     grid-template-columns: 1fr;
@@ -203,14 +197,15 @@ footer {
 
 <div class="blob one"></div>
 <div class="blob two"></div>
-<div class="cursor"></div>
 
 <header>
   <h1>LARS VFX</h1>
   <div class="subtitle">VFX • Indents • Montages • Editing Software • Thumbnails</div>
+
   <a class="btn" href="#work">Portfolio</a>
   <a class="btn" href="#thumbnails">Thumbnails</a>
   <a class="btn" href="reviews.html">Reviews</a>
+  <a class="btn" href="status.html">Status</a>
 </header>
 
 <section class="glass about">
@@ -221,14 +216,14 @@ footer {
 <section id="work">
   <h2>Projects</h2>
   <div class="grid">
-    <div class="glass card"><iframe src="https://www.youtube.com/embed/N7vpbeXD9vY" title="Project 1" allowfullscreen></iframe></div>
-    <div class="glass card"><iframe src="https://www.youtube.com/embed/pd6nv-I5F_4" title="Project 2" allowfullscreen></iframe></div>
-    <div class="glass card"><iframe src="https://www.youtube.com/embed/a47zbq367qY" title="Project 3" allowfullscreen></iframe></div>
-    <div class="glass card"><iframe src="https://www.youtube.com/embed/hBNRPI55WwM" title="Project 4" allowfullscreen></iframe></div>
-    <div class="glass card"><iframe src="https://www.youtube.com/embed/_IdQ169qETU" title="Project 5" allowfullscreen></iframe></div>
-    <div class="glass card"><iframe src="https://www.youtube.com/embed/_q_p6vjaB-0" title="Project 6" allowfullscreen></iframe></div>
-    <div class="glass card"><iframe src="https://www.youtube.com/embed/zTsws8_Yvhs" title="Project 7" allowfullscreen></iframe></div>
-    <div class="glass card"><iframe src="https://www.youtube.com/embed/GpGtei5CbOw" title="Project 8" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/N7vpbeXD9vY" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/pd6nv-I5F_4" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/a47zbq367qY" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/hBNRPI55WwM" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/_IdQ169qETU" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/_q_p6vjaB-0" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/zTsws8_Yvhs" allowfullscreen></iframe></div>
+    <div class="glass card"><iframe src="https://www.youtube.com/embed/GpGtei5CbOw" allowfullscreen></iframe></div>
   </div>
 </section>
 
@@ -236,15 +231,15 @@ footer {
   <h2>Thumbnails</h2>
   <div class="grid">
     <div class="glass thumb-card">
-      <img class="thumb" src="https://cdn.discordapp.com/attachments/1496483719676956672/1496487430281236601/image.png?ex=69f1f906&is=69f0a786&hm=929b75f6ad9b3d94931afbf5d5b3c700824e150840775ab7d05de09c27018260&" alt="Thumbnail 1">
+      <img class="thumb" src="https://cdn.discordapp.com/attachments/1496483719676956672/1496487430281236601/image.png" alt="">
     </div>
 
     <div class="glass thumb-card">
-      <img class="thumb" src="https://cdn.discordapp.com/attachments/1496483719676956672/1496487236932210788/3_Vertex_Lars.png?ex=69f1f8d8&is=69f0a758&hm=fafb13efa5ee61898e782f97912e85d01e65f88a506f2324e985e27dfdba608b&" alt="Thumbnail 2">
+      <img class="thumb" src="https://cdn.discordapp.com/attachments/1496483719676956672/1496487236932210788/3_Vertex_Lars.png" alt="">
     </div>
 
     <div class="glass thumb-card">
-      <img class="thumb" src="https://cdn.discordapp.com/attachments/1496483719676956672/1496486265196118017/IMG_2926.png?ex=69f1f7f0&is=69f0a670&hm=63eb88895ccdf6595e0a07fe36af9b4589165d1cd242a34eafdcb9ecf688ffb1&" alt="Thumbnail 3">
+      <img class="thumb" src="https://cdn.discordapp.com/attachments/1496483719676956672/1496486265196118017/IMG_2926.png" alt="">
     </div>
   </div>
 </section>
@@ -253,28 +248,13 @@ footer {
   <h2>Socials</h2>
   <div class="social-buttons">
     <a class="btn" href="https://discord.gg/rtBEgYQQE9" target="_blank">Join Discord</a>
-    <a class="btn" href="https://youtube.com/@editor-lars?si=_BzL6O5iLz4CVWo0" target="_blank">Lars Kanaal</a>
+    <a class="btn" href="https://youtube.com/@editor-lars" target="_blank">Lars Kanaal</a>
   </div>
 </section>
 
 <footer>
   © 2026 Lars VFX
 </footer>
-
-<script>
-const cursor = document.querySelector('.cursor');
-
-window.addEventListener('mousemove', (e) => {
-  if (!cursor) return;
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-});
-
-document.querySelectorAll('a, iframe, .card, .thumb-card, img').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor?.classList.add('hover'));
-  el.addEventListener('mouseleave', () => cursor?.classList.remove('hover'));
-});
-</script>
 
 </body>
 </html>
