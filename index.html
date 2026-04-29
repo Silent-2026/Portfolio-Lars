@@ -20,7 +20,7 @@ body {
   background: radial-gradient(circle at top, #0b0b14, #000);
   color: white;
   overflow-x: hidden;
-  cursor: none;
+  cursor: auto; /* FIXED: cursor restored */
 }
 
 a,
@@ -29,7 +29,7 @@ button,
 .thumb-card,
 iframe,
 img {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 2 L5 26 L12 19 L17 30 L20 29 L15 18 L24 18 Z' fill='white' stroke='rgba(255,255,255,0.35)' stroke-width='1' stroke-linejoin='round'/%3E%3C/svg%3E") 4 4, pointer;
+  cursor: pointer;
 }
 
 .blob {
@@ -55,6 +55,7 @@ img {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255,255,255,0.15);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 20px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
@@ -167,8 +168,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-  body { cursor: auto; }
-
   .grid {
     grid-template-columns: 1fr;
   }
@@ -221,6 +220,7 @@ footer {
   <h2>Thumbnails</h2>
   <div class="grid">
 
+    <!-- FIXED PATHS (your GitHub repo root images) -->
     <div class="glass thumb-card">
       <img class="thumb" src="thumb1.png" alt="Thumbnail 1">
     </div>
