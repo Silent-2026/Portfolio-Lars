@@ -20,9 +20,12 @@ body {
   background: radial-gradient(circle at top, #0b0b14, #000);
   color: white;
   overflow-x: hidden;
-  cursor: auto; /* FIXED: cursor restored */
+
+  /* FIXED: normal cursor */
+  cursor: default;
 }
 
+/* clickable elements */
 a,
 button,
 .card,
@@ -220,7 +223,7 @@ footer {
   <h2>Thumbnails</h2>
   <div class="grid">
 
-    <!-- FIXED PATHS (your GitHub repo root images) -->
+    <!-- FIXED: local GitHub repo images -->
     <div class="glass thumb-card">
       <img class="thumb" src="thumb1.png" alt="Thumbnail 1">
     </div>
