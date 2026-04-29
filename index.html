@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,14 +32,6 @@ img {
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 2 L5 26 L12 19 L17 30 L20 29 L15 18 L24 18 Z' fill='white' stroke='rgba(255,255,255,0.35)' stroke-width='1' stroke-linejoin='round'/%3E%3C/svg%3E") 4 4, pointer;
 }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top, #0b0b14, #000);
-  color: white;
-  overflow-x: hidden;
-}
-
 .blob {
   position: fixed;
   width: 500px;
@@ -64,7 +55,6 @@ body {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255,255,255,0.15);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border-radius: 20px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
@@ -86,7 +76,6 @@ h1 {
   font-size: 1.05rem;
 }
 
-/* NAV FIX */
 .nav {
   display: flex;
   justify-content: center;
@@ -103,7 +92,6 @@ section {
 
 h2 {
   text-align: center;
-  margin-top: 0;
   margin-bottom: 24px;
   font-size: clamp(28px, 4vw, 36px);
 }
@@ -131,8 +119,8 @@ iframe,
   height: 220px;
   border-radius: 15px;
   border: none;
-  display: block;
   object-fit: cover;
+  display: block;
 }
 
 .btn {
@@ -142,7 +130,6 @@ iframe,
   border-radius: 999px;
   background: rgba(255,255,255,0.1);
   border: 1px solid rgba(255,255,255,0.2);
-  backdrop-filter: blur(10px);
   color: white;
   text-decoration: none;
   transition: 0.3s;
@@ -152,10 +139,9 @@ iframe,
   background: rgba(255,255,255,0.2);
 }
 
-.about {
+.about,
+.socials {
   text-align: center;
-  margin-top: 20px;
-  color: #ccc;
   padding: 32px 24px;
 }
 
@@ -163,12 +149,7 @@ iframe,
   max-width: 760px;
   margin: 0 auto;
   line-height: 1.7;
-}
-
-.socials {
-  text-align: center;
-  margin-top: 30px;
-  padding: 32px 24px;
+  color: #ccc;
 }
 
 .social-buttons {
@@ -207,7 +188,7 @@ footer {
 
 <header>
   <h1>LARS VFX</h1>
-  <div class="subtitle">VFX • Indents • Montages • Editing Software • Thumbnails</div>
+  <div class="subtitle">VFX • Edits • Montages • Thumbnails</div>
 
   <div class="nav">
     <a class="btn" href="#work">Portfolio</a>
@@ -239,17 +220,19 @@ footer {
 <section id="thumbnails">
   <h2>Thumbnails</h2>
   <div class="grid">
+
     <div class="glass thumb-card">
-      <img class="thumb" src="https://cdn.discordapp.com/attachments/1496483719676956672/1496487430281236601/image.png" alt="">
+      <img class="thumb" src="thumb1.png" alt="Thumbnail 1">
     </div>
 
     <div class="glass thumb-card">
-      <img class="thumb" src="https://cdn.discordapp.com/attachments/1496483719676956672/1496487236932210788/3_Vertex_Lars.png" alt="">
+      <img class="thumb" src="thumb2.png" alt="Thumbnail 2">
     </div>
 
     <div class="glass thumb-card">
-      <img class="thumb" src="https://cdn.discordapp.com/attachments/1496483719676956672/1496486265196118017/IMG_2926.png" alt="">
+      <img class="thumb" src="thumb3.png" alt="Thumbnail 3">
     </div>
+
   </div>
 </section>
 
@@ -257,7 +240,7 @@ footer {
   <h2>Socials</h2>
   <div class="social-buttons">
     <a class="btn" href="https://discord.gg/rtBEgYQQE9" target="_blank">Join Discord</a>
-    <a class="btn" href="https://youtube.com/@editor-lars" target="_blank">Lars Kanaal</a>
+    <a class="btn" href="https://youtube.com/@editor-lars" target="_blank">YouTube</a>
   </div>
 </section>
 
